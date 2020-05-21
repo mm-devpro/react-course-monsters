@@ -1,0 +1,118 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-display;
+  color: $color-secondary;
+}
+
+.hide {
+  display: none !important;
+}
+
+//-------------------------- ADMIN GRID -----------------------------------------------
+
+.grid-admin-container {
+  display: grid;
+  grid-template-columns: [content-start] minmax(min-content, 30vw) [content-end form-start] minmax(min-content, 70vw) [form-end];
+  grid-template-rows: minmax(20vh, min-content) repeat(2, minmax(min-content, max-content)) minmax(15vh, min-content);
+
+  &__header {
+    grid-area: 1 / content-start / 2 / form-end;
+    background-color: $color-secondary-light;
+  }
+
+  .buttons {
+    justify-self: center;
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+    border-bottom: 2px solid $color-secondary;
+    width: 90%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  .admin-content {
+    grid-area: 3 / content-start / 4 / form-end;
+  }
+
+  &__footer {
+    grid-area: 4 / content-start / 5 / form-end;
+    background-color: grey;
+  }
+}
+
+//----------------------- MAIN SITE GRID ---------------------//
+
+.grid-container {
+  display: grid;
+  grid-template-columns: [main-start] 1fr [center-start] minmax(3fr, 130rem) [center-end] 1fr [main-end];
+  grid-template-rows: min-content 80vh minmax(min-content, max-content) min-content;
+
+  @media only screen and (max-width: $bp-largest) {
+    grid-template-rows: repeat(2, min-content) minmax(min-content, max-content) min-content;
+  }
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: [main-start] 1fr [center-start] minmax(min-content, 130rem) [center-end] 1fr [main-end];
+  }
+  .header {
+    grid-area: 1 / main-start / 2 / main-end;
+    display: grid;
+    grid-template-columns: max-content 1fr 10rem;
+    grid-template-rows: min-content;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns:minmax(min-content, 1fr);
+      align-items: center;
+      justify-items: center;
+
+      .svg {
+        grid-column: 1 / -1;
+      }
+      .heading--sub {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  .bg-video {
+    grid-area: 2 / main-start / 3 / main-end;
+  }
+
+  .overview {
+    grid-area: 3 / main-start / 4 / main-end;
+  }
+  .sideview {
+    grid-area: 2 / main-start / 4 / main-end;
+  }
+  .footer {
+    grid-row: 4 / 5;
+    grid-column: main-start / main-end;
+  }
+}
+
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-secondary;
+}
+

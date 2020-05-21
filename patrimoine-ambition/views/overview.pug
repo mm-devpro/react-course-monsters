@@ -1,0 +1,91 @@
+extends base
+
+
+block header
+  header.header
+    include _svg
+
+block video
+  .bg-video
+    video.bg-video__content(autoplay muted loop playsinline="")
+      source(src="/img/header_video-2.mp4" type="video/mp4")
+      source(src="/img/header_video-2.webm" type="video/webm")
+      | your browser doesn't support this video...
+
+block overview
+  main.overview
+    section.introduction
+      .heading.heading-2
+        h2.heading-2--main La gestion de votre patrimoine
+        h2.heading-2--sub Notre Métier
+      p.strong Le cabinet &nbsp;
+        span.italic PATRIMOINE AMBITION &nbsp;
+        | est spécialisé dans le conseil en gestion de patrimoine. Il intervient notamment sur la gestion, l’optimisation et la transmission de votre patrimoine.
+      p Le monde économique, juridique, financier et fiscal est complexe et en pleine évolution. Il est nécessaire d’agir et de s’adapter à ces nouveaux enjeux.
+      p Le cabinet développe une approche globale de la gestion de patrimoine et vous apporte une expertise transversale en matière d’accompagnement fiscal, de transmission, d’investissement immobilier et financier, et de financement. Pour cela le cabinet travaille en étroite collaboration avec un réseau de spécialistes (notaires, avocats, fiscalistes, experts-comptables, courtiers et agents immobiliers) pour répondre au mieux à vos objectifs.
+      p Après un audit patrimonial approfondi, &nbsp;
+        span.strong.italic PATRIMOINE AMBITION &nbsp;
+        | conseille et coordonne les investissements de ses clients en fonction de leurs projets de vie. L’objectif est de mettre en place une stratégie financière exclusive en fonction d’un cahier des charges précis défini en amont. Cette stratégie n’est pas figée, elle évolue au fil du temps et de nos rencontres.
+      p Indépendant, le cabinet fonctionne en architecture ouverte et sélectionne des investissements auprès de partenaires prestigieux dans les domaines de la finance et de l’immobilier.
+      p L’humain est au cœur de notre profession, le cabinet s’appuie sur des valeurs fortes pour être à la hauteur de votre confiance : Ecoute, confidentialité, réactivité et transparence.
+      ul
+        li Pour exercer le métier de Conseil en Gestion de Patrimoine, le CGP doit cumuler plusieurs compétences et exercer plusieurs professions réglementées :
+        li •&nbsp;	Conseil en Investissements Financiers (CIF)
+        li •&nbsp;	Intermédiaires en Opérations de Banque et Services de Paiement (IOBSP)
+        li •&nbsp;	Intermédiaire en Opérations d'Assurance (IAS)
+        li •&nbsp;	Intermédiaires en transactions immobilières, titulaire de la carte T (loi Hoguet)
+        li •&nbsp;	Conseil patrimonial à titre accessoire avec la Compétence Juridique Appropriée (CJA)
+
+    section.mentors#mentors
+      .heading.heading-2
+        h2.heading-2--main Au service de votre patrimoine
+        h2.heading-2--sub Notre Equipe
+      .mentors--item-1.mentors--card
+        img(src=`/img/employees/${employees[0].image}` alt=`${employees[0].name}`)
+        p.mentors--card__name= employees[0].name
+        p.mentors--card__title= employees[0].jobTitle
+        a.btn.mentors--card__btn(href='#popup-1')= `Plus d'infos sur ${employees[0].name.split(' ')[0]}`
+      .mentors--item-2.mentors--card
+        img(src=`/img/employees/${employees[1].image}` alt=`${employees[1].name}`)
+        p.mentors--card__name= employees[1].name
+        p.mentors--card__title= employees[1].jobTitle
+        a.btn.mentors--card__btn(href='#popup-2')= `Plus d'infos sur ${employees[1].name.split(' ')[0]}`
+      .mentors--item-3.mentors--card
+        img(src=`/img/employees/${employees[2].image}` alt=`${employees[2].name}`)
+        p.mentors--card__name= employees[2].name
+        p.mentors--card__title= employees[2].jobTitle
+        a.btn.mentors--card__btn(href='#popup-3')= `Plus d'infos sur ${employees[2].name.split(' ')[0]}`
+
+    section.story__picture
+      img.story__picture-1(src='/img/happy-family.jpg' alt="Famille heureuse")
+      img.story__picture-2(src='/img/grand-parents.jpg' alt="Grands parents")
+    section.story__text
+      blockquote.story__text--quote
+        |&ldquo; Chaque client est unique, son patrimoine et les intérêts de sa famille aussi, PATRIMOINE AMBITION vous accompagne dans la durée et vous garantit un suivi permanent et régulier. &rdquo;
+    section.services
+      .heading.heading-2
+        h2.heading-2--main Au service de vos objectifs
+        h2.heading-2--sub Notre expertise
+      each service in services
+        a.services--card(href=`/objectifs/${service.slug}`)
+          img(src=`/img/services/${service.image}`)
+          h4.heading.heading-4= service.title
+    section.contacts
+      .heading.heading-2
+        h2.heading-2--main Contactez nous
+      .contact-box#contacts
+        .address
+          h3.heading.heading-3 adresse
+          p chemin de test
+          p code postal
+          p ville
+        .phone-and-email
+          h3.heading.heading-3 contacts
+          a.btn.phone(href="tel:+769040801")
+            i.fas.fa-mobile-alt
+            |&nbsp; Appelez-nous
+          a.btn.email(href="mailto:contact@patrimoine-ambition.fr")
+            i.fas.fa-at
+            |&nbsp; Laissez-nous un email
+block popup
+  include _popup

@@ -1,0 +1,26 @@
+extends base
+
+block header
+  .header.header-sub
+    include _svg-white
+    h2.heading--sub #{section}
+
+block sideview
+  main.grid-team.sideview
+    each employee in team
+      if(employee.status === "show")
+        .grid-team-box
+          img.grid-team-box__img(src=`/img/employees/${employee.image}` alt=`${employee.name}`)
+          h3.heading.heading-3.grid-team-box__name= employee.name
+          h4.heading.grid-team-box__jobTitle= employee.jobTitle
+          .grid-team-box__description
+            - employeedescription = employee.description.split(/paras/g)
+              each desc in employeedescription
+                if (desc.includes('strong') && !desc.includes('italic'))
+                  p.strong.grid-team-box__description #{desc.replace("strong", "")}
+                else if (!desc.includes('strong') && desc.includes('italic'))
+                  p.italic.grid-team-box__description #{desc.replace("italic", "")}
+                else if (desc.includes('strong') && desc.includes('italic'))
+                  p.strong.grid-team-box__description #{desc.replace("strong", "").replace("italic", "")}
+                else
+                  p.grid-team-box__description= desc

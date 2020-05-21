@@ -1,0 +1,143 @@
+.form {
+  display: grid;
+  align-content: space-between;
+
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: $default-font-size;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    border-bottom: 3px solid $color-secondary;
+    transition: all .3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary-dark;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid red;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-secondary-light;
+    }
+  }
+
+  &__label {
+    font-size: $default-font-size;
+    color: $color-secondary;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+
+.login-form {
+  background-color: $color-secondary;
+  display: grid;
+  grid-template-rows: 1fr minmax(45vh, max-content) minmax(min-content, max-content);
+  grid-template-columns: 1fr minmax(30rem, max-content) 1fr;
+  align-content: center;
+  grid-row-gap: 5rem;
+
+  h2 {
+    grid-area: 1 / 1 / 2 / -1;
+    padding-top: 7rem;
+  }
+
+  .form {
+    &--login {
+      grid-area: 2 / 2 / 3 / 3;
+      border: 2px solid $color-secondary-light;
+      border-radius: 15px;
+      padding: 2rem 1rem;
+      box-shadow: 0 1rem 5rem rgba($color-primary, .2);
+      background-color: $color-white;
+      text-align: center;
+    }
+
+    &__label {
+      margin-left: 0;
+    }
+  }
+
+  .footerAdmin {
+    grid-area: 3 / 1 / 4 / -1;
+  }
+}
+
+//---------------------ADMIN FORM SECTION-------------------//
+.form__data {
+  display: grid;
+  grid-template-rows: [title-start] min-content [title-end];
+  grid-template-columns: repeat(6, 1fr);
+  grid-row-gap: 5rem;
+
+
+  h2 {
+    grid-column: 1 / -1;
+    grid-row: title-start / title-end;
+  }
+
+  //--------------ADMIN FORM--------------//
+  &--services, &--partners, &--employees, &--user, &--password {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(min-content, 1fr));
+    grid-gap: 5rem;
+    padding: 0 2rem;
+  }
+  //------------INSIDE THE ADMIN FORM------------//
+  &--center-content {
+    grid-column: 2 / -2;
+  }
+  &--left-content {
+    grid-column: 1 / 4;
+  }
+
+  &--right-content {
+    grid-column: 5 / -1;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      max-width: 100%;
+    }
+    .form__radio-box {
+      display: grid;
+      grid-template-columns: min-content minmax(min-content, 1fr);
+      grid-column-gap: 1rem;
+      label {
+        justify-self: left;
+        margin: 0;
+      }
+    }
+  }
+  &--description {
+    grid-column: 1 / -1;
+  }
+  &--buttons {
+    grid-column: 2 / -2;
+    justify-self: center;
+  }
+}

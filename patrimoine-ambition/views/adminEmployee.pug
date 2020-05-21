@@ -1,0 +1,56 @@
+extends adminBase
+
+block header
+  include _adminHeader
+
+block buttons
+  .buttons
+    button.btn-admin.btn-admin__create
+      i.fas.fa-plus-circle
+      |   Nouveau
+
+block content
+  main.admin-content
+    section.admin-content__datas.employees
+      h2.heading.heading-2 Equipe
+      each employee in employees
+        a.employees--card.employees--card_Admin(href="#", data-slug=`${employee.slug}`)
+          img(src=`/img/employees/${employee.image}`)
+          h4.heading.heading-4= employee.name
+
+    section.admin-content__form.form__data
+      h2.heading.heading-2 Créer ou Modifier
+      form.form__data--employees.hide#form__employee-update
+        input#form__employee-id(type="hidden" name="id" data-hasid ="0")
+        input#form__employee-slug(type="hidden" name="slug")
+        .form__data--left-content
+          .form__group
+            label.form__label(for="form__employee-name") Prénom et Nom
+            input.form__input#form__employee-name(type="text" name="name")
+          .form__group
+            label.form__label(for="form__employee-email") Email
+            input.form__input#form__employee-email(type="email" name="email")
+          .form__group
+            label.form__label(for="form__employee-job") Statut dans l'entreprise
+            input.form__input#form__employee-job(type="text" name="jobTitle")
+        .form__data--right-content
+          .form__group.form__photo-upload
+            img#form__employee-imageToShow
+            label.form__label(for='form__employee-image') Choisir une nouvelle photo
+            input.form__upload#form__employee-image(type='file', accept='image/*', name='image')
+          .form__group.form__radio-box
+            input.form__input.form__employee-radio#form__employee-hide(type="radio" name="status" value="hide" checked)
+            label.form__label(for="form__employee-hide") Caché
+            input.form__input.form__employee-radio#form__employee-show(type="radio" name="status" value="show")
+            label.form__label(for="form__employee-show") Montré
+        .form__data--description
+          .form__group
+            label.form__label(for="form__employee-description") Description
+            textarea.form__input#form__employee-description(name="description" rows="15")
+        .form__data--buttons
+          button.btn-admin.btn-admin__save(type="submit")
+            i.fas.fa-marker
+            |   Enregistrer les modifications
+          button.btn-admin.btn-admin__delete(type="reset")
+            i.fas.fa-trash
+            |   Supprimer la fiche

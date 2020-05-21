@@ -1,0 +1,31 @@
+extends base
+
+block header
+  header.header.header-sub
+    include _svg-white
+    h2.heading--sub #{section}
+
+block sideview
+  main.grid-service.sideview
+    section.service-container
+      img.service-container__img(src=`/img/services/${mainService.image}`)
+      h3.heading.heading-3.service-container__title= mainService.title
+      .service-container__description
+        - let description = mainService.description.split(/paras/g)
+        each desc in description
+          if (desc.includes('strong') && !desc.includes('italic'))
+            p.strong.service-container__description #{desc.replace("strong", "")}
+          else if (!desc.includes('strong') && desc.includes('italic'))
+            p.italic.service-container__description #{desc.replace("italic", "")}
+          else if (desc.includes('strong') && desc.includes('italic'))
+            p.strong.italic.service-container__description #{desc.replace("strong", "").replace("italic", "")}
+          else
+            p.service-container__description= desc
+
+    section.other-services
+      .heading.heading-2
+        h2.heading-2--sub Vos Objectifs
+      each service in services
+        a.other-services--card(href=`/objectifs/${service.slug}`)
+          img(src=`/img/services/${service.image}`)
+          h4.heading.heading-4= service.title

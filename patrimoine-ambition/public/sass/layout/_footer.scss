@@ -1,0 +1,105 @@
+.footer {
+  display: grid;
+  grid-template-rows: 5rem repeat(3, min-content) 5rem;
+  grid-template-columns: repeat(8, 1fr);
+  justify-items: center;
+  color: $color-white;
+  background-color: $color-secondary;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 5rem repeat(4, min-content) 5rem;
+    grid-row-gap: 2rem;
+  }
+
+  &__logo-box {
+    grid-area: 2 / 3 / 3 / 7;
+  }
+
+  &__nav {
+    grid-area: 3 / 2 / 4 / 6;
+    border-top: 1px solid $color-white;
+    padding-top: 2rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 2 / 8;
+    }
+  }
+
+  &__network {
+    grid-area: 3 / 6 / 4 / 8;
+    border-top: 1px solid $color-white;
+    padding-top: 2rem;
+    display: block;
+    width: 80%;
+    text-align: center;
+    @media only screen and (max-width: $bp-large) {
+      grid-area: 4 / 2 / 5 / 8;
+    }
+
+    &--list {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    i {
+      font-size: 3rem;
+      transition: all .2s;
+
+      &:hover {
+        color: $color-primary;
+        transform: rotate(5deg) scale(1.3);
+      }
+    }
+  }
+
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+
+  &__link, .anchor {
+    &:link, &:visited {
+      text-decoration: none;
+      display: inline-block;
+      transition: all .4s;
+      color: currentColor;
+    }
+
+    &:hover, &:active {
+      color: $color-primary;
+      background-color: $color-secondary;
+      box-shadow: 0 1rem 2rem rgba($color-black, .4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+  }
+
+  .anchor {
+    font-style: italic;
+  }
+
+  &__copyright {
+    grid-area: 4 / 3 / 5 / 7;
+    color: $color-white;
+    padding-top: 2rem;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-row: 5 / 6;
+    }
+  }
+}

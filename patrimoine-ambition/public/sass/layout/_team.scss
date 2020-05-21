@@ -1,0 +1,128 @@
+.grid-team {
+  display: grid;
+  background-color: $color-grey-light-1;
+  grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
+  grid-template-columns: [main-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] 1fr [main-end];
+  @include section-grid;
+
+  &-box {
+    grid-column: center-start / center-end;
+    display: grid;
+    position: relative;
+    grid-template-columns: [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end];
+    grid-template-rows: repeat(4, min-content);
+    grid-gap: 3rem;
+    align-items: stretch;
+    padding-top: 3rem;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-bottom: 1px solid $color-primary-2;
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+    p {
+      padding: 1rem 0;
+    }
+
+    &__img {
+      grid-area: 1 / center-start / 3 / col-end 2;
+      border-radius: 5px;
+      object-fit: cover;
+      max-width: 100%;
+    }
+
+    &__name {
+      grid-area: 3 / center-start / 4 / col-end 2;
+      justify-self: start;
+    }
+
+    &__jobTitle {
+      grid-area: 4 / center-start / 5 / col-end 2;
+      text-align: left;
+    }
+
+    &__description {
+      grid-area: 1 / col-start 3 / 5 / center-end;
+    }
+
+    &:nth-of-type(even) img {
+      grid-area: 1 / col-start 5 / 3 / center-end;
+      justify-self: end;
+      border-radius: 5px;
+    }
+
+    &:nth-of-type(even) h3 {
+      grid-area: 3 / col-start 5 / 4 / center-end;
+      justify-self: end;
+    }
+
+    &:nth-of-type(even) h4 {
+      grid-area: 4 / col-start 5 / 5 / center-end;
+      justify-self: end;
+      text-align: right;
+    }
+
+    &:nth-of-type(even) .grid-team-box__description {
+      grid-area: 1 / center-start / 5 / col-end 4;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      &__img {
+        grid-area: 1 / center-start / 3 / col-end 3;
+      }
+
+      &__name {
+        grid-area: 1 / col-start 4 / 2 / center-end;
+        align-self: center;
+      }
+
+      &__jobTitle {
+        grid-area: 2 / col-start 4 / 3 / center-end;
+      }
+
+      &__description, &:nth-of-type(even) .grid-team-box__description {
+        grid-area: 4 / center-start / 5 / center-end;
+      }
+
+      &:nth-of-type(even) img {
+        grid-area: 1 / col-start 4 / 3 / center-end;
+      }
+      &:nth-of-type(even) h3 {
+        grid-area: 1 / center-start / 2 / col-end 3;
+        justify-self: end;
+      }
+      &:nth-of-type(even) h4 {
+        grid-area: 2 / center-start / 3 / col-end 3;
+        justify-self: end;
+      }
+    }
+    @media only screen and (max-width: $bp-vsmall) {
+      justify-items: center;
+      text-align: center;
+
+      &__img, &:nth-of-type(even) img {
+        grid-area: 1 / center-start / 3 / center-end;
+      }
+
+      &__name, &:nth-of-type(even) h3 {
+        grid-area: 3 / center-start / 4 / center-end;
+        text-align: center;
+        justify-self: center;
+      }
+
+      &__jobTitle, &:nth-of-type(even) h4 {
+        grid-area: 4 / center-start / 5 / center-end;
+        text-align: center;
+      }
+      &__description, &:nth-of-type(even) .grid-team-box__description {
+        grid-area: 5 / center-start / 6 / center-end;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.grid-admin-container__header.headerAdmin
+  .headerAdmin__logo-box
+    //svg(xmlns:mydata='http://www.w3.org/2000/svg', mydata:contrastcolor='7DA1C4', mydata:template='default', mydata:presentation='2.5', mydata:layouttype='', mydata:specialfontid='', mydata:id1='393', mydata:id2='184', mydata:companyname='PATRIMOINE AMBITION', mydata:companytagline='Notre ambition votre patrimoine', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='75', height='80')
+    //  defs
+    //    lineargradient#color-1(x1='0', y1='80', x2='75', y2='80', gradientunits='userSpaceOnUse')
+    //      stop(offset='0', stop-color='#222223')
+    //      stop(offset='1', stop-color='#fdee79')
+    //  g(fill='none', fill-rule='nonzero', stroke='none', stroke-width='1', stroke-linecap='butt', stroke-linejoin='miter', stroke-miterlimit='10', stroke-dasharray='', stroke-dashoffset='0', font-family='none', font-weight='none', font-size='none', text-anchor='none', style='mix-blend-mode: normal')
+    //    g
+    //      g(fill='url(#color-1)')
+    //-        path(d='M40.60908,10.09115h-26.0908v5.21816h26.0908c8.62736,0 15.65448,7.02712 15.65448,15.65448c0,8.62736 -7.02712,15.65448 -15.65448,15.65448h-15.65448v20.87264h-10.43632v5.21816h15.65448v-20.87264h10.43632c11.50604,0 20.87264,-9.3666 20.87264,-20.87264c0,-11.50604 -9.3666,-20.87264 -20.87264,-20.87264zM19.73644,25.74563h20.87264c2.87869,0 5.21816,2.33947 5.21816,5.21816c0,2.87869 -2.33947,5.21816 -5.21816,5.21816h-15.65448v5.21816h15.65448c5.75737,0 10.43632,-4.67895 10.43632,-10.43632c0,-5.75737 -4.67895,-10.43632 -10.43632,-10.43632h-26.0908v41.74527h5.21816z')
+    block svgAnimSmall
+      include _svg-anim-small
+
+  nav.headerAdmin__mainNav
+    ul
+      li.headerAdmin__mainNav--item
+        a(href="/my-pa-admin/objectifs") Objectifs
+      li.headerAdmin__mainNav--item
+        a(href="/my-pa-admin/equipe") Equipe
+      li.headerAdmin__mainNav--item
+        a(href="/my-pa-admin/partenaires") Partenaires
+      li.headerAdmin__mainNav--item
+        a(href="/my-pa-admin/settings") Mon compte
+  nav.headerAdmin__accountNav
+    ul
+      li.headerAdmin__accountNav--item
+        a.nav__el--logout(href="#")
+          i.fas.fa-sign-out-alt
+          |    Log out
+
+  .border-gradient
+

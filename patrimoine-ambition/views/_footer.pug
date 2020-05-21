@@ -1,0 +1,29 @@
+footer.footer
+  .footer__logo-box
+    include _svg-white
+  .footer__nav
+    ul.footer__list
+      li.footer__item
+        a.footer__link(href='/') Accueil
+      li.footer__item
+        a.footer__link(href='/notre-equipe') Notre Equipe
+      li.footer__item
+        a.footer__link(href=`/objectifs/${services[0].slug}`) Vos objectifs
+      li.footer__item
+        a.footer__link(href='/nos-partenaires') Partenaires
+      li.footer__item
+        a.footer__link(href='/#contacts') Contacts
+      li.footer__item
+        a.footer__link(href='#') Acc&egrave;s Client
+  .footer__network
+    ul.footer__list.footer__network--list
+      li.footer__item
+        a.footer__link(href='#')
+          i.fab.fa-linkedin
+      li.footer__item
+        a.footer__link(href='#')
+          i.fab.fa-twitter-square
+  .footer__copyright
+    p &copy; _2020 Tout droit réservé à Patrimoine-Ambition, website fait par mm-devpro
+      |
+      a.anchor(href="/mentions-legales") - Mentions légales du site

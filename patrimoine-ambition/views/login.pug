@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(href='https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap', rel='stylesheet')
+    link(rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon')
+    link(rel='icon' href='/img/favicon.ico' type='image/x-icon')
+    link(rel='stylesheet', href='/css/style.css')
+    title Patrimoine Ambition | #{title}
+    script(src='https://kit.fontawesome.com/502191cc49.js' crossorigin='anonymous')
+
+
+
+  body
+    .login-form
+      h2.heading.heading-2--sub Log into your account
+      form.form.form--login
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+        .form__group
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group
+          button.btn-admin Log In
+      include _adminFooter
+
+
+script(src="/js/bundle.js")

@@ -1,0 +1,45 @@
+extends adminBase
+
+block header
+  include _adminHeader
+
+block buttons
+  .buttons
+    button.btn-admin.btn-admin__create
+      i.fas.fa-plus-circle
+      |   Nouveau
+
+block content
+  main.admin-content
+    section.admin-content__datas.services
+      h2.heading.heading-2 Objectifs
+      each service in services
+        a.services--card.services--card_Admin(href="#", data-slug=`${service.slug}`)
+          img(src=`/img/services/${service.image}`)
+          h4.heading.heading-4= service.title
+
+    section.admin-content__form.form__data
+      h2.heading.heading-2 Créer ou Modifier
+      form.form__data--services.hide#form__service-update
+        input#form__service-id(type="hidden" name="id" data-hasid ="0")
+        input#form__service-slug(type="hidden" name="slug")
+        .form__data--left-content
+          .form__group
+            label.form__label(for="form__service-title") Titre de l'objectif
+            input.form__input#form__service-title(type="text" name="title")
+        .form__data--right-content
+          .form__group.form__photo-upload
+            img#form__service-imageToShow
+            label.form__label(for='form__service-image') Choisir une nouvelle photo
+            input.form__upload#form__service-image(type='file', accept='image/*', name='image')
+        .form__data--description
+          .form__group
+            label.form__label(for="form__service-description") Description
+            textarea.form__input#form__service-description(name="description" rows="15")
+        .form__data--buttons
+          button.btn-admin.btn-admin__save(type="submit")
+            i.fas.fa-marker
+            |   Enregistrer les modifications
+          button.btn-admin.btn-admin__delete(type="reset")
+            i.fas.fa-trash
+            |   Supprimer la fiche

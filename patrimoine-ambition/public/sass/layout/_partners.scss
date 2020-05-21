@@ -1,0 +1,42 @@
+// SIDE VIEW GRID PARTNERS
+.grid-partners {
+
+  display: grid;
+  background-color: $color-grey-light-1;
+  grid-template-rows: 40vh minmax(50vh, max-content);
+  grid-template-columns: [main-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] 1fr [main-end];
+
+  .partners-title {
+    grid-column: center-start / center-end;
+    text-align: center;
+    display: grid;
+    @include section-grid;
+  }
+
+  .partners-container{
+    grid-column: main-start / main-end;
+    background-color: $color-grey-dark-1;
+
+    border-top: 2px solid $color-primary-dark;
+    border-bottom: 2px solid $color-primary-dark;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25rem);
+    @include section-grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      opacity: 0.85;
+      transition: all .2s ease;
+    }
+    img:hover {
+      opacity: 1;
+    }
+  }
+}

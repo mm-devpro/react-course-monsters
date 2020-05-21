@@ -1,0 +1,54 @@
+#popup-1.popup
+  .popup__content
+    .popup__left
+      img.popup__img(src=`/img/employees/${employees[0].image}` alt=`${employees[0].name}`)
+    .popup__right
+      h3.heading.heading-3= employees[0].name
+      h4.heading= employees[0].jobTitle
+      - let employeedescription = employees[0].description.split(/paras/g)
+      each desc in employeedescription
+        if (desc.includes('strong') && !desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "")}
+        else if (!desc.includes('strong') && desc.includes('italic'))
+          p.italic.popup__text #{desc.replace("italic", "")}
+        else if (desc.includes('strong') && desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "").replace("italic", "")}
+        else
+          p.popup__text= desc
+    a.popup__close(href='#mentors') &times;
+#popup-2.popup
+  .popup__content
+    .popup__left
+      img.popup__img(src=`/img/employees/${employees[1].image}` alt=`${employees[1].name}`)
+    .popup__right
+      h3.heading.heading-3= employees[1].name
+      h4.heading= employees[1].jobTitle
+      - employeedescription = employees[1].description.split(/paras/g)
+      each desc in employeedescription
+        if (desc.includes('strong') && !desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "")}
+        else if (!desc.includes('strong') && desc.includes('italic'))
+          p.italic.popup__text #{desc.replace("italic", "")}
+        else if (desc.includes('strong') && desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "").replace("italic", "")}
+        else
+          p.popup__text= desc
+    a.popup__close(href='#mentors') &times;
+#popup-3.popup
+  .popup__content
+    .popup__left
+      img.popup__img(src=`/img/employees/${employees[2].image}` alt=`${employees[2].name}`)
+    .popup__right
+      h3.heading.heading-3= employees[2].name
+      h4.heading= employees[2].jobTitle
+      - employeedescription = employees[2].description.split(/paras/g)
+      each desc in employeedescription
+        if (desc.includes('strong') && !desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "")}
+        else if (!desc.includes('strong') && desc.includes('italic'))
+          p.italic.popup__text #{desc.replace("italic", "")}
+        else if (desc.includes('strong') && desc.includes('italic'))
+          p.strong.popup__text #{desc.replace("strong", "").replace("italic", "")}
+        else
+          p.popup__text= desc
+    a.popup__close(href='#mentors') &times;

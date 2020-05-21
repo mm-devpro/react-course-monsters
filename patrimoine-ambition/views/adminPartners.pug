@@ -1,0 +1,43 @@
+extends adminBase
+
+block header
+  include _adminHeader
+
+block buttons
+  .buttons
+    button.btn-admin.btn-admin__create
+      i.fas.fa-plus-circle
+      |   Nouveau
+
+block content
+  main.admin-content
+    section.admin-content__datas.partners
+      h2.heading.heading-2 Partenaires
+      each partner in partners
+        a.partners--card.partners--card_Admin(href="#", data-getid=`${partner.id}`)
+          img(src=`/img/partners/${partner.image}`)
+          h4.heading.heading-4= partner.name
+
+    section.admin-content__form.form__data
+      h2.heading.heading-2 Créer ou Modifier
+      form.form__data--partners.hide#form__partners-update
+        input#form__partners-id(type="hidden" name="id" data-hasid ="0")
+        .form__data--left-content
+          .form__group
+            label.form__label(for="form__partners-name") Nom du partenaire
+            input.form__input#form__partners-name(type="text" name="name")
+          .form__group
+            label.form__label(for="form__partners-link") Lien du site
+            input.form__input#form__partners-link(type="text" name="link")
+        .form__data--right-content
+          .form__group.form__photo-upload
+            img#form__partners-imageToShow
+            label.form__label(for='form__partners-image') Choisir une nouvelle photo
+            input.form__upload#form__partners-image(type='file', accept='image/*', name='image')
+        .form__data--buttons
+          button.btn-admin.btn-admin__save(type="submit")
+            i.fas.fa-marker
+            |   Enregistrer les modifications
+          button.btn-admin.btn-admin__delete(type="reset")
+            i.fas.fa-trash
+            |   Supprimer la fiche

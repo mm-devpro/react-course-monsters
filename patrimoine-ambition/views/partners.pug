@@ -1,0 +1,17 @@
+extends base
+
+block header
+  header.header.header-sub
+    include _svg-white
+    h2.heading--sub #{section}
+
+block sideview
+  main.grid-partners.sideview
+    section.partners-title
+      h3.heading.heading-3 Nos Partenaires
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    section.partners-container
+      each partner in partners
+        //a(href="#" alt=`${partner.name}`)
+        .partner-box
+          img(src=`/img/partners/${partner.image}` alt=`${partner.name}` title=`${partner.name}`)

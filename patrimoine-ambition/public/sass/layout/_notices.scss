@@ -1,0 +1,17 @@
+.notices {
+  display: grid;
+  background-color: $color-grey-light-1;
+  grid-template-columns: [main-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] 1fr [main-end];
+  @include section-grid;
+
+  &-item {
+    grid-column: center-start / center-end;
+
+    p, ul, li {
+      padding-top: 1rem;
+    }
+    ul {
+      padding-left: 2rem;
+    }
+  }
+}

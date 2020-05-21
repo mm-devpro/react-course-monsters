@@ -1,0 +1,86 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, .9);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    min-height: 50vh;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s;
+    padding: 1.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+  &__left {
+    grid-column: 1 / 2;
+    img {
+      object-fit: cover;
+      width: 100%;
+      max-width: 100%;
+      padding: 1rem;
+    }
+  }
+  &__right {
+    grid-column: 2 / 4;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: grid;
+    grid-row-gap: 3rem;
+    justify-items: left;
+  }
+  @media only screen and (max-width: $bp-large) {
+    &__left {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      justify-self: center;
+    }
+    &__right {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+  }
+
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  &__close {
+    &:link, &:visited {
+      color: $color-secondary-light;
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      font-size: 6rem;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+
+  }
+}

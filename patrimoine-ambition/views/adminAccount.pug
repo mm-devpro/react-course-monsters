@@ -1,0 +1,44 @@
+extends adminBase
+
+block header
+  include _adminHeader
+
+block content
+  main.admin-content--account
+    section.admin-content--account-settings.form__data
+      h2.heading.heading-2 Mon compte
+      form.form__data--user
+        .form__data--left-content
+          .form__group
+            label.form__label(for='form__user-name') Name
+            input#form__user-name.form__input(type='text', value=`${user.name}`, required, name='name')
+          .form__group
+            label.form__label(for='form__user-email') addresse Mail
+            input#form__user-email.form__input(type='email', value=`${user.email}`, required, name='email')
+        .form__data--right-content
+          .form__group.form__photo-upload
+            img.form__user-photo(src=`/img/users/${user.image}`, alt='User photo')
+            input#form__user-image.form__upload(type='file', accept='image/*', name='image')
+            label(for='form__user-image') Choisir une nouvelle photo
+        .form__data--buttons
+          button.btn-admin.btn-admin__save(type="submit")
+            i.fas.fa-marker
+            |   Enregistrer les modifications
+
+    section.admin-content--account-password.form__data
+      h2.heading.heading-2 Password Update
+      form.form__data--password
+        .form__data--center-content
+          .form__group
+            label.form__label(for='password-current') Current password
+            input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
+          .form__group
+            label.form__label(for='password') New password
+            input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+          .form__group
+            label.form__label(for='password-confirm') Confirm password
+            input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__data--buttons
+          button.btn-admin.btn-admin__save.btn-admin__save-password(type="submit")
+            i.fas.fa-marker
+            |   Enregistrer

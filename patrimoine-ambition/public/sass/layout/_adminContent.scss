@@ -1,0 +1,64 @@
+.admin-content {
+  display: grid;
+  grid-template-columns: [content-start] minmax(min-content, 30vw) [content-end form-start] minmax(min-content,65vw) [form-end];
+  grid-column-gap: 2rem;
+
+  .services, .employees, .partners {
+    @include section-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    grid-template-rows: [title-start] min-content [title-end];
+    justify-items: center;
+    @include service-card;
+
+    &--card {
+      max-width: 90%;
+    }
+  }
+
+  .employees, .partners {
+    &--card {
+      img {
+        transition: all .5s ease;
+        filter: blur(0) brightness(1);
+      }
+
+      &:nth-of-type(odd) img {
+        filter: blur(0) brightness(1);
+      }
+
+      &:hover img {
+        filter: blur(2px) brightness(.3);
+      }
+
+      &:nth-of-type(odd):hover img {
+        filter: blur(2px) brightness(.3);
+      }
+    }
+  }
+
+  &__datas {
+    grid-column: content-start / content-end;
+    background-color: $color-grey-light-2;
+    overflow-y: scroll;
+    max-height: 90vh;
+  }
+
+  &__form {
+    grid-column: form-start / form-end;
+    background-color: $color-grey-light-1;
+  }
+
+  &--account {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 65vw 35vw;
+    justify-content: center;
+    &-settings {
+      background-color: $color-grey-light-1;
+    }
+    &-password {
+      background-color: $color-grey-light-2;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    //meta(property="og:title" content="Patrimoine-Ambition, votre patrimoine notre ambition")
+    //meta(property="og:description" content="Patrimoine-Ambition est une start-up de Rhone Alpes. Cette société de gestion de patrimoine apporte aux professionnels et aux particuliers, du conseil, de l'experience et du suivi sur tous les plans financiers.")
+    //meta(property="og:url" content="https://www.patrimoine-ambition.fr/")
+    //meta(property="og:type" content="website")
+    //meta(property="og:locale" content="fr-fr")
+    link(href='https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap', rel='stylesheet')
+    link(rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon')
+    link(rel='icon' href='/img/favicon.ico' type='image/x-icon')
+    link(rel='stylesheet', href='/css/style.css')
+    title Patrimoine Ambition | #{title}
+    script(src='https://kit.fontawesome.com/502191cc49.js' crossorigin='anonymous')
+
+body
+  //- HIDDEN NAVIGATION FOR TOP RIGHT END BURGER BUTTON
+  .navigation
+    input#navi-toggle.navigation__checkbox(type='checkbox')
+    label.navigation__button(for='navi-toggle')
+      span.navigation__icon &nbsp;
+    .navigation__background &nbsp;
+    nav.navigation__nav
+      ul.navigation__list
+        li.navigation__item
+          a.navigation__link(href='/')
+            span Accueil
+        li.navigation__item
+          a.navigation__link(href='/notre-equipe')
+            span Notre Equipe
+        li.navigation__item
+          a.navigation__link(href=`/objectifs/${services[0].slug}`)
+            span Vos objectifs
+        li.navigation__item
+          a.navigation__link(href='/nos-partenaires')
+            span Partenaires
+        li.navigation__item
+          a.navigation__link(href='/#contacts')
+            span Contacts
+        li.navigation__item
+          a.navigation__link(href='#')
+            span Acc&egrave;s client &rarr;
+
+  .grid-container
+    block header
+    block video
+    block overview
+    block sideview
+    include _footer
+
+  // POP UPS FOR SECTION-MENTORS CARDS INFOS IN OVERVIEW
+  block popup
+
+
+script(type="module" src="/js/bundle.js")

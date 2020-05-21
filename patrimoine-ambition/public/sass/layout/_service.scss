@@ -1,0 +1,73 @@
+// SIDE VIEW GRID SERVICE
+.grid-service {
+
+  display: grid;
+  background-color: $color-grey-light-1;
+  grid-template-rows: repeat(2, minmax(40vh, max-content));
+  grid-template-columns: [main-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] 1fr [main-end];
+
+  .service-container {
+    grid-area: 1 / main-start / 2 / main-end;
+
+    display: grid;
+    grid-template-columns: [main-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] 1fr [main-end];
+    grid-template-rows: repeat(6, minmax(min-content, 15vh));
+    justify-items: center;
+
+    &__img {
+      grid-area: 2 / center-start / 5 / col-end 3;
+      object-fit: cover;
+      width: 90%;
+      justify-self: center;
+      align-self: center;
+      box-shadow: 0 1rem 4rem rgba($color-secondary, .7);
+      filter: brightness(.8) contrast(1.2);
+      border-radius: 5px;
+
+      @media only screen and (max-width: $bp-largest) {
+        grid-area: 2 / center-start / 4 / col-end 3;
+      }
+      @media only screen and (max-width: $bp-medium) {
+        grid-area: 3 / col-start 2 / 4 / col-end 5;
+      }
+    }
+
+    &__title {
+      grid-area: 2 / col-start 4 / 3 / center-end;
+
+
+      @media only screen and (max-width: $bp-largest) {
+        align-self: center;
+        grid-area: 2 / col-start 4 / 4 / center-end;
+      }
+      @media only screen and (max-width: $bp-medium) {
+        grid-area: 2 / center-start / 3 / center-end;
+      }
+    }
+
+    &__description {
+      grid-area: 3 / col-start 4 / 7 / center-end;
+
+      @media only screen and (max-width: $bp-largest) {
+        grid-area: 4 / center-start / 7 / center-end;
+        padding-top: 2rem;
+      }
+      p {
+        padding-bottom: 2.5rem;
+      }
+    }
+  }
+
+  .other-services {
+    grid-area: 2 / center-start / 3 / center-end;
+    @include section-grid;
+    margin: 0 auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    @include section-title;
+    justify-content: space-evenly;
+    justify-items: center;
+    @include service-card;
+  }
+}
